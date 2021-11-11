@@ -10,9 +10,7 @@ import {
 } from "../controllers/posts";
 
 const router = express.Router();
-router.get("/", (req, res) => {
-  res.send("HELLO");
-});
+
 router.get("/", getPosts);
 router.post("/", createPost);
 router.get("/:id", getPost);
