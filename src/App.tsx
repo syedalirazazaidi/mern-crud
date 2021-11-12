@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Counter } from "./features/counter/Counter";
 import { Typography, Container, AppBar, Grid, Grow } from "@mui/material";
 import memories from "./images/memories.png";
 import Form from "./components/Form/Form";
 import Posts from "./components/Posts/Posts";
 import useStyles from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./app/store";
+import { getPosts } from "./features/posts/postSlice";
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const post = useSelector((state: RootState) => state.post);
+  useEffect(() => {
+    dispatch(getPosts);
+  }, []);
+
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
