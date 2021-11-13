@@ -8,10 +8,12 @@ import useStyles from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./app/store";
 import { getPosts } from "./features/posts/postSlice";
+
 function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const post = useSelector((state: RootState) => state.post);
+
+  // const post = useSelector((state: RootState) => state.post);
   useEffect(() => {
     dispatch(getPosts);
   }, []);
@@ -46,6 +48,7 @@ function App() {
           </Grid>
         </Container>
       </Grow>
+      {/* <Counter /> */}
     </Container>
     // <div className="App">
     //   <header className="App-header">
