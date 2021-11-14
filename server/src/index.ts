@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { DB, PORT } from "./../config/index";
 import router from "./routes/posts";
+import PostMessage from "./models/postMessage";
 
 const app = express();
 app.use(cors());

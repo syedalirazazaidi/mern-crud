@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 // import FileBase from "react-file-base64";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import useStyles from "./styles";
+
+import { createPosts } from "../../features/posts/postSlice";
 const Form = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   interface dataType {
     creator: string;
@@ -20,7 +23,18 @@ const Form = () => {
     tags: "",
     selectedFile: "",
   });
-  const handleSubmit = () => {};
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    dispatch(createPosts(postData));
+
+    // if (currentId === 0) {
+    //   dispatch(createPost(postData));
+    //   clear();
+    // } else {
+    //   dispatch(updatePost(currentId, postData));
+    //   clear();
+    // }
+  };
   const clear = () => {};
 
   return (
